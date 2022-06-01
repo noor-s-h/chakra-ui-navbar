@@ -4,12 +4,12 @@ import {
   Collapse,
   Icon,
   useDisclosure,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
-import NavLink from './NavLink';
-import DropDown from './DropDown';
+import NavLink from "./NavLink";
+import DropDown from "./DropDown";
 
 export default function MobileMenu({ label, href, childrens, closeNav }) {
   const { isOpen, onToggle } = useDisclosure();
@@ -18,33 +18,24 @@ export default function MobileMenu({ label, href, childrens, closeNav }) {
     <ListItem>
       {childrens ? (
         <>
-          <Button
-            w="100%"
-            py=".5rem"
-            variant="link"
-            onClick={onToggle}
-          >
+          <Button w="100%" py=".5rem" variant="link" onClick={onToggle}>
             {label}
             <Icon
               as={ChevronDownIcon}
-              transition={'all .25s ease-in-out'}
-              transform={isOpen ? 'rotate(180deg)' : ''}
+              transition="all .25s ease-in-out"
+              transform={isOpen ? "rotate(180deg)" : ""}
               w={6}
               h={6}
-              ml={'auto'}
+              ml="auto"
             />
           </Button>
-          <Collapse
-            in={isOpen}
-            style={{ marginTop: '0' }}
-            unmountOnExit
-          >
+          <Collapse in={isOpen} unmountOnExit>
             <DropDown closeNav={closeNav} childrens={childrens} />
           </Collapse>
         </>
       ) : (
         <NavLink href={href} closeNav={closeNav}>
-            {label}
+          {label}
         </NavLink>
       )}
     </ListItem>

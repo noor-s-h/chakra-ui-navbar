@@ -1,35 +1,22 @@
-import { extendTheme } from '@chakra-ui/react'
-import { createBreakpoints } from '@chakra-ui/theme-tools'
+import { extendTheme } from "@chakra-ui/react";
 
-import { Button } from './button'
-import { Link } from './link'
+import config from "./config";
+import fonts from "./fonts";
+import colors from "./colors";
+import breakpoints from "./breakpoints";
 
-const config = {
-  initialColorMode: 'light',
-  useSystemColorMode: false,
-}
-
-const fonts = { mono: `'Menlo', monospace` }
-
-const breakpoints = createBreakpoints({
-  sm: '40em',
-  md: '52em',
-  lg: '64em',
-  xl: '80em',
-})
+import Button from "./button";
+import Link from "./link";
 
 const theme = extendTheme({
   config,
-  colors: {
-    white: "#fff",
-    black: '#141414',
-  },
+  fonts,
+  colors,
+  breakpoints,
   components: {
     Button,
     Link,
   },
-  fonts,
-  breakpoints,
-})
+});
 
-export default theme
+export default theme;

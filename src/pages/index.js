@@ -1,7 +1,3 @@
-const Index = () => (
-  <>
-    Home
-  </>
-);
+const Index = () => <>Home</>;
 
 export default Index;
